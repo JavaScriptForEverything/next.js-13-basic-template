@@ -7,6 +7,7 @@ type Props = {
 const ProductDetails = () => {
 	const { products } = store.getState().product
 
+
 	return (
 		<>
 			<p>Product details</p>
@@ -18,3 +19,4 @@ const ProductDetails = () => {
 	)
 }
 export default ProductDetails
+
