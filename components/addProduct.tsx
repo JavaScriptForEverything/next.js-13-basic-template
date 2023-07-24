@@ -1,5 +1,5 @@
 'use client'
-import * as productReducer from '@/store/productReducer'
+import * as productReducer from '@/store/slice/product'
 import { Product } from '@/shared/types'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 

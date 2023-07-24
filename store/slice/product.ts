@@ -1,34 +1,38 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { AppDispatch } from '.';
+import { AppDispatch } from '..';
 
-import type { Product } from '../shared/types';
+import type { Product } from '../../shared/types';
 
 
 type InitialStateProps = {
 	loading: boolean,
 	error: string,
-	products: null | Product[]
+	products: Product[]
 }
 
 const initialState: InitialStateProps = {
 	loading: false,
 	error: '',
-	products: null
+	products: []
 }
 
 const { reducer, actions } = createSlice({
 	name: 'product',
 	initialState,
 	reducers: {
+		setSsrProducts: (state, action: PayloadAction<Product[]>) => ({
+			...state,
+			products: action.payload 
+		}),
 		setProducts: (state, action: PayloadAction<Product[]>) => ({
 			...state,
-			// products: action.payload 
-			products: [ ...action.payload ]
+			products: [ ...state.products, ...action.payload ]
 		})
+
 	}
 })
 export default reducer
-export const { setProducts } = actions
+export const { setSsrProducts } = actions
 
 
 export const addProducts = (products: Product[]) => (dispatch: AppDispatch) => {
