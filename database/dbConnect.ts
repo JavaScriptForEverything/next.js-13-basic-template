@@ -1,12 +1,14 @@
 import mongoose from 'mongoose'
 
+const { NODE_ENV, MONGODB_LOCAL_URI, MONGODB_REMOTE_URI } = process.env
 
-if(!process.env.MONGODB_URI) {
+const MONGODB_URI = NODE_ENV === 'production' ? MONGODB_REMOTE_URI : MONGODB_LOCAL_URI  
+
+
+if(!MONGODB_URI) {
 	throw new Error('Please add your MONGODB_URI to .env.local')
 }
 
-const MONGODB_URI: string = process.env.MONGODB_URI
-// console.log({ MONGODB_URI })
 
 let globalWithMongoose = global as typeof globalThis & { mongoose: any }
 
