@@ -92,8 +92,9 @@ const LoginPage = () => {
 		})
 
 		const formData = new FormData()
-		formData.append('fields', blob) 			// send JSON data as Binary => BLOB
-		formData.append('image', blob) 				// send Image or File, or any data as Binary Large Object
+		// formData.append('fields', blob) 			// send JSON data as Binary => BLOB
+		// formData.append('image', blob, 'image') 				// send Image or File, or any data as Binary Large Object
+		formData.set('image', blob, 'image') 				// send Image or File, or any data as Binary Large Object
 
 		const res = await fetch('/api/users', {
 			method: 'post',
