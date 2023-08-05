@@ -1,5 +1,40 @@
 ## Next.js-13 Basic Setups
 
+
+##### Basic Commands and Environment Valirables
+
+- Commands
+```
+	$ sudo systemctl start mongodb 		: Start Database
+
+	$ pnpm install 			 	: Install all required Packages
+
+	$ pnpm dev 			 	: Run as for Dev
+
+	$ pnpm build 			
+	$ pnpm start 				: Run as for Production
+```
+
+- Environment Variables
+```
+# DATABASE: MongoDB
+MONGODB_PASSWORD='secret'
+MONGODB_LOCAL_URI='mongodb://localhost:27017/bebaha'
+MONGODB_REMOTE_URI='mongodb+srv://javascriptforeverything:${MONGODB_PASSWORD}@cluster0.fgnadzs.mongodb.net/?retryWrites=true&w=majority'
+
+
+
+# Next-Auth
+NEXTAUTH_SECRET='secret' 	                : # crypto.randomUUID()
+# NEXTAUTH_URL='http://localhost:3000' 		: # If enable this variable it throw Error: Unauthorize, Blocked...
+
+GOOGLE_CLIENT_ID='secret'
+GOOGLE_CLIENT_SECRET='secret'
+
+FACEBOOK_CLIENT_ID='secret'
+FACEBOOK_CLIENT_SECRET='secret'
+```
+
 ##### Packge Manger used `pnpm` so the command will be
 `
 	$ pnpm install

@@ -1,5 +1,7 @@
 // import './globals.css'
-import MuiThemeProvider from '@/lib/muiThemeProvider'
+import AuthProvider from '@/authProvider'
+import Header from '@/components/header'
+import MuiThemeProvider from '@/muiThemeProvider'
 import ReduxProvider from '@/store/provider'
 import type { Metadata } from 'next'
 // import { Inter } from 'next/font/google'
@@ -16,7 +18,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning={true}>
 				<ReduxProvider>
 					<MuiThemeProvider>
-						{children}
+						<AuthProvider>
+							<Header />
+							{children}
+						</AuthProvider>
 					</MuiThemeProvider>
 				</ReduxProvider>
 			</body>

@@ -1,6 +1,6 @@
 'use client'
 import { ThemeProvider } from '@mui/material'
-import { theme } from '.'
+import { theme } from './lib'
 
 type Props = {
 	children: React.ReactNode
